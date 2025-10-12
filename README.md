@@ -1,3 +1,7 @@
 # Mission-DSA
-All of the solved DSA questions.
-Author: Abhay Kumar Verma(Cybersecurity)
+
+# Objective
+Practicing and increasing knowledge by solving the questions.
+
+# Author
+Abhay Kumar Verma Computer Science (Cybersecurity)
