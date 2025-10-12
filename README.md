@@ -4,4 +4,5 @@
 Practicing and increasing knowledge by solving the questions.
 
 # Author
-Abhay Kumar Verma Computer Science (Cybersecurity)
+Abhay Kumar Verma <br>
+Computer Science (Cybersecurity)
