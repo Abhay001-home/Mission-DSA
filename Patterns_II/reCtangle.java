@@ -1,27 +1,30 @@
 import java.util.Scanner;
-public class Patterns_II {
-     public static void hollow_rectangle(int row, int col){
+
+public class reCtangle {
+     public static void hollow_rectangle(int row, int col) {
           // outer loop for rows
-          for(int i=1;i<=row;i++){
+          for (int i = 1; i <= row; i++) {
                // inner loop for columns
-               for(int j=1;j<=col;j++){
+               for (int j = 1; j <= col; j++) {
                     // condition for first and last row or first and last column
-                    if(i==1 || i==row || j==1 || j==col){
+                    if (i == 1 || i == row || j == 1 || j == col) {
                          System.out.print("* ");
-                    }else{
+                    } else {
                          System.out.print("  ");
                     }
                }
                System.out.println();
           }
      }
-public static void main(String[] args){
-          Scanner sc =new Scanner(System.in);
+
+     public static void main(String[] args) {
+          Scanner sc = new Scanner(System.in);
           System.out.println("Enter the number of rows and columns for hollow rectangle: ");
           int a = sc.nextInt();
           int b = sc.nextInt();
-          hollow_rectangle(a,b);
+          hollow_rectangle(a, b);
           sc.close();
+     }
 }
 
-  Author: Abhay Kumar Verma (Cybersecurity)
+// Author: Abhay Kumar Verma (Cybersecurity)
