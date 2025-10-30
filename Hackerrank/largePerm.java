@@ -4,6 +4,7 @@ public class largePerm {
      private static int[] largestPermutation(int k, int[] arr) {
           int n = arr.length;
           // pos[value] = current index of this value
+          // hashmap stores values of the array
           Map<Integer, Integer> pos = new HashMap<>();
           for (int i = 0; i < n; ++i)
                pos.put(arr[i], i);
