@@ -8,11 +8,13 @@ public class quesTion26_4 {
                }
                return;
           }
+          // if string wants to be a part of a subset then add it and ask for next element
           findSubsets(str, newStr+str.charAt(idx), idx+1);
+          // if string does not want to be a part of a subset then leave the element and move to the next element
           findSubsets(str, newStr, idx+1);
      }
      public static void main(String[] args) {
-          String str = "abc";
+          String str = "abcd";
           findSubsets(str, "", 0);
      }
 }
