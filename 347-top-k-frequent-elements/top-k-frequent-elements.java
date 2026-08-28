@@ -1,29 +1,44 @@
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
-        // it is method of HashMap
-        Map<Integer, Integer> map = new HashMap<>();
-        int[] res = new int[k];
-        for (int i = nums.length - 1; i >= 0; i--) {
-            map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
+        int n = nums.length;
+        Map<Integer, Integer> mp = new HashMap<>();
+        for (int num : nums) {
+            mp.put(num, mp.getOrDefault(num, 0) + 1);
         }
-        // System.out.println(map);
         
-        int key = 1;
-        int value = Integer.MIN_VALUE;
-        for (int i = 0; i < k; i++) {
-            // here we sorted the stack
-            for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-                if (entry.getValue() > value) {
-                    key = entry.getKey();
-                    value = entry.getValue();
-                }
-            }
-            res[i] = key;
-            // removed the top element from min-heap
-            map.remove(key);
-            value = Integer.MIN_VALUE;
-
+        // index = frequency
+        // Value will be elements
+        // bucket[i] = elements occurring i-th time
+        List<List<Integer>> bucket = new ArrayList<>(n + 1);
+        for (int i = 0; i <= n; i++) {
+            bucket.add(new ArrayList<>());
         }
-        return res;
+        
+        for (Map.Entry<Integer, Integer> entry : mp.entrySet()) {
+            int element = entry.getKey();
+            int freq = entry.getValue();
+            
+            bucket.get(freq).add(element);
+        }
+        
+        // Pick from right to left to find max frequency elements
+        List<Integer> resultList = new ArrayList<>();
+        for (int i = n; i >= 0; i--) {
+            if (bucket.get(i).isEmpty()) continue;
+            
+            List<Integer> currentBucket = bucket.get(i);
+            while (!currentBucket.isEmpty() && k > 0) {
+                resultList.add(currentBucket.remove(currentBucket.size() - 1));
+                k--;
+            }
+        }
+        
+        // Convert List<Integer> to int[]
+        int[] result = new int[resultList.size()];
+        for (int i = 0; i < resultList.size(); i++) {
+            result[i] = resultList.get(i);
+        }
+        
+        return result;
     }
 }
