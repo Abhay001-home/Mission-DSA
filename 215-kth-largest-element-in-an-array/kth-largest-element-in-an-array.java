@@ -1,15 +1,17 @@
 class Solution {
     public int findKthLargest(int[] nums, int k) {
-        // brute force
-        // converted int array into Integer wrapper class 
-        Integer[] arr = new Integer[nums.length];
-        // traverse and stored
-        for (int i = 0; i < nums.length; i++) {
-            arr[i] = nums[i];
+        int[] freq = new int[20001];
+        for (int i : nums) {
+            freq[i + 10000]++;
         }
-        // reverse order
-        Arrays.sort(arr, Collections.reverseOrder());
-        // kth value
-        return arr[k - 1];
+        for (int i = 20000; i >= 0; i--) {
+            if (freq[i] > 0) {
+                k -= freq[i];
+                if (k <= 0) {
+                    return i - 10000;
+                }
+            }
+        }
+        return 0;
     }
 }
