@@ -19,17 +19,17 @@ class Solution {
             }
         }
 
-        List<Integer> resultList = new ArrayList<>(set);
-        Collections.sort(resultList);
+        // List<Integer> resultList = new ArrayList<>(set);
+        // Collections.sort(resultList);
 
-        int totalValues = 0;
+        // int totalValues = 0;
         
-        int[] result = new int[resultList.size()];
-        for (int i = 0; i < resultList.size(); i++) {
-            result[i] = resultList.get(i);
-            totalValues = result.length;
-        }
+        // int[] result = new int[resultList.size()];
+        // for (int i = 0; i < resultList.size(); i++) {
+        //     result[i] = resultList.get(i);
+        //     totalValues = result.length;
+        // }
 
-        return totalValues;
+        return set.size();
     }
 }
